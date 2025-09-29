@@ -69,7 +69,7 @@ def go(config: DictConfig):
 
         if "data_check" in active_steps:
             _ = mlflow.run(
-                "src/data_check",
+                "./src/data_check",
                 "main",
                 parameters={
                     "csv": "clean_sample.csv:latest",         # latest cleaned data
