@@ -68,12 +68,14 @@ def go(config: DictConfig):
 
 
         if "data_check" in active_steps:
+            data_check_path = os.path.join(os.getcwd(), "src", "data_check")
+
             _ = mlflow.run(
-                "./src/data_check",
+                data_check_path,
                 "main",
                 parameters={
-                    "csv": "clean_sample.csv:latest",         # latest cleaned data
-                    "ref": "clean_sample.csv:reference",     # reference dataset
+                    "csv": "clean_sample.csv:latest",
+                    "ref": "clean_sample.csv:reference",
                     "kl_threshold": config["data_check"]["kl_threshold"],
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"]
