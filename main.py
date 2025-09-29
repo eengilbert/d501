@@ -68,8 +68,8 @@ def go(config: DictConfig):
 
 
         if "data_check" in active_steps:
-            data_check_path = os.path.join(os.getcwd(), "src", "data_check")
-
+            data_check_path = "https://github.com/eengilbert/d501.git#src/data_check"
+        
             _ = mlflow.run(
                 data_check_path,
                 "main",
@@ -81,6 +81,7 @@ def go(config: DictConfig):
                     "max_price": config["etl"]["max_price"]
                 },
             )
+
 
 
         if "data_split" in active_steps:
